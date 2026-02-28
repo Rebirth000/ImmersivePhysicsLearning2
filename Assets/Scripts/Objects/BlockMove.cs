@@ -127,8 +127,8 @@ public partial class BlockMove : MonoBehaviour
     /// <param name="setVelocityToZero">是否使物体停止</param>
     public void StopMove(bool setVelocityToZero = true) {
         isMoving = false;
-        if (setVelocityToZero) _body.velocity = Vector3.zero;
-        else _body.velocity                   = CalculateVelocity(this.t) * couple.moveRatio * moveDir; // 如果不停止，则设置 body 速度，继续运动下去
+        if (setVelocityToZero) _body.linearVelocity = Vector3.zero;
+        else _body.linearVelocity                   = CalculateVelocity(this.t) * couple.moveRatio * moveDir; // 如果不停止，则设置 body 速度，继续运动下去
 
         t = 0;
     }
