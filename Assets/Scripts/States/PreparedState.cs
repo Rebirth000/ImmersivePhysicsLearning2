@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PreparedState : BaseState
 {
@@ -42,18 +42,18 @@ public class PreparedState : BaseState
 
         // 激活交互
         main.blockBEffect.highlighted = true;
-        main.menuEffect.highlighted   = true;
+        main.menuEffect.highlighted = true;
 
         if (main.interactionType == InteractionType.VirtualHands)
         {
-            main.cubeGrab.enabled             = true;
-            main.cubeGrabEvent.enabled        = true;
+            main.cubeGrab.enabled = true;
+            main.cubeGrabEvent.enabled = true;
             main.cubeGrabInteractable.enabled = true;
         }
 
         // 进入准备阶段，重置 textPullVelocity 显示和 IsPulling
         main.textPullVelocity.enabled = false;
-        PullInput.Instance.IsPulling  = false;
+        PullInput.Instance.IsPulling = false;
     }
 
     public override void Update()
@@ -65,7 +65,7 @@ public class PreparedState : BaseState
     {
         // 取消交互
         main.blockBEffect.highlighted = false;
-        main.menuEffect.highlighted   = false;
+        main.menuEffect.highlighted = false;
 
         DataSetting.Instance.graphMgr.Reset();
     }
@@ -73,7 +73,7 @@ public class PreparedState : BaseState
     // 检查切换状态的方法
     public override void SwitchState()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             // couple：给 block 设置初速度
             DataSetting.Instance.couple.SetPreSpeed(main.block, main.maxSpeed);

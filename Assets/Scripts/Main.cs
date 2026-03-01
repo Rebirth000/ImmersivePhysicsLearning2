@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public partial class Main : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public partial class Main : MonoBehaviour
     public Grabbable knobGrab;
 
     public HandGrabInteractable cubeGrabInteractable;
-    public PokeInteractable     buttonPressInteractable;
+    public PokeInteractable buttonPressInteractable;
     public HandGrabInteractable knobGrabInteractable;
 
     public InteractableUnityEventWrapper cubeGrabEvent;
@@ -44,7 +45,7 @@ public partial class Main : MonoBehaviour
     public InteractableUnityEventWrapper knobGrabEvent;
 
     public KnobRotate knobRotate;
-    public KnobAngle  knobAngle;
+    public KnobAngle knobAngle;
 
     public HighlightEffect blockBEffect;
     public HighlightEffect knobEffect;
@@ -58,52 +59,54 @@ public partial class Main : MonoBehaviour
     public Vector3 pullHandNowPos;  // 手该帧的位置 x
 
     public OneGrabTranslateTransformer blockBTranslateTransformer;
-    public OneGrabRotateTransformer    knobRotateTransformer;
+    public OneGrabRotateTransformer knobRotateTransformer;
 
     [Range(0, 2)]
     public float angleRatio = 0.2f; // 旋钮旋转对应滑块移动的距离
 
-    private PreparedState    _preparedState;
-    private PullingState     _pullingState;
-    private RunningState     _runningState;
+    private PreparedState _preparedState;
+    private PullingState _pullingState;
+    private RunningState _runningState;
     private ControllingState _controllingState;
-    private FinishedState    _finishedState;
+    private FinishedState _finishedState;
 
-    private void Awake() {
+    private void Awake()
+    {
         // _slider          = DataSetting.GetComponent<Slider>("Canvas/Slider");
         // _button          = DataSetting.GetComponent<Button>("Canvas/Button");
         textPullVelocity = DataSetting.GetComponent<TextMeshPro>("Objects/LabTable/Track/Couple/BlockB/TextPullVelocity");
-        blockBEffect     = DataSetting.GetComponent<HighlightEffect>("Objects/LabTable/Track/Couple/BlockB/Model/Block");
-        knobEffect       = DataSetting.GetComponent<HighlightEffect>("Objects/LabTable/Base/KnobObj/Up");
-        buttonEffect     = DataSetting.GetComponent<HighlightEffect>("Objects/LabTable/Base/ButtonObj/Button/Visuals/ButtonVisual");
-        menuEffect       = DataSetting.GetComponent<HighlightEffect>("ButtonMenu");
+        blockBEffect = DataSetting.GetComponent<HighlightEffect>("Objects/LabTable/Track/Couple/BlockB/Model/Block");
+        knobEffect = DataSetting.GetComponent<HighlightEffect>("Objects/LabTable/Base/KnobObj/Up");
+        buttonEffect = DataSetting.GetComponent<HighlightEffect>("Objects/LabTable/Base/ButtonObj/Button/Visuals/ButtonVisual");
+        menuEffect = DataSetting.GetComponent<HighlightEffect>("ButtonMenu");
 
-        cubeGrab             = DataSetting.GetComponent<Grabbable>("Objects/LabTable/Track/Couple/BlockB");
+        cubeGrab = DataSetting.GetComponent<Grabbable>("Objects/LabTable/Track/Couple/BlockB");
         cubeGrabInteractable = DataSetting.GetComponent<HandGrabInteractable>("Objects/LabTable/Track/Couple/BlockB/HandGrabInteractable");
-        cubeGrabEvent        = DataSetting.GetComponent<InteractableUnityEventWrapper>("Objects/LabTable/Track/Couple/BlockB/HandGrabInteractable");
+        cubeGrabEvent = DataSetting.GetComponent<InteractableUnityEventWrapper>("Objects/LabTable/Track/Couple/BlockB/HandGrabInteractable");
 
         buttonPressInteractable = DataSetting.GetComponent<PokeInteractable>("Objects/LabTable/Base/ButtonObj/Button");
-        buttonPressEvent        = DataSetting.GetComponent<InteractableUnityEventWrapper>("Objects/LabTable/Base/ButtonObj/Button");
+        buttonPressEvent = DataSetting.GetComponent<InteractableUnityEventWrapper>("Objects/LabTable/Base/ButtonObj/Button");
 
-        knobGrab             = DataSetting.GetComponent<Grabbable>("Objects/LabTable/Base/KnobObj/Up");
+        knobGrab = DataSetting.GetComponent<Grabbable>("Objects/LabTable/Base/KnobObj/Up");
         knobGrabInteractable = DataSetting.GetComponent<HandGrabInteractable>("Objects/LabTable/Base/KnobObj/Up/HandGrabInteractable");
-        knobGrabEvent        = DataSetting.GetComponent<InteractableUnityEventWrapper>("Objects/LabTable/Base/KnobObj/Up/HandGrabInteractable");
-        knobAngle            = DataSetting.GetComponent<KnobAngle>("Objects/LabTable/Base/KnobObj");
-        knobRotate           = DataSetting.GetComponent<KnobRotate>("Objects/LabTable/Base/KnobObj");
+        knobGrabEvent = DataSetting.GetComponent<InteractableUnityEventWrapper>("Objects/LabTable/Base/KnobObj/Up/HandGrabInteractable");
+        knobAngle = DataSetting.GetComponent<KnobAngle>("Objects/LabTable/Base/KnobObj");
+        knobRotate = DataSetting.GetComponent<KnobRotate>("Objects/LabTable/Base/KnobObj");
 
         rightHandAnchorDetached = DataSetting.GetComponent<Transform>("OVRCameraRig/TrackingSpace/RightHandAnchorDetached");
 
         blockBTranslateTransformer = DataSetting.GetComponent<OneGrabTranslateTransformer>("Objects/LabTable/Track/Couple/BlockB");
-        knobRotateTransformer      = DataSetting.GetComponent<OneGrabRotateTransformer>("Objects/LabTable/Base/KnobObj/Up");
+        knobRotateTransformer = DataSetting.GetComponent<OneGrabRotateTransformer>("Objects/LabTable/Base/KnobObj/Up");
     }
 
     // Start is called before the first frame update
-    void Start() {
-        _preparedState    = new PreparedState(this);
-        _pullingState     = new PullingState(this);
-        _runningState     = new RunningState(this);
+    void Start()
+    {
+        _preparedState = new PreparedState(this);
+        _pullingState = new PullingState(this);
+        _runningState = new RunningState(this);
         _controllingState = new ControllingState(this);
-        _finishedState    = new FinishedState(this);
+        _finishedState = new FinishedState(this);
 
         // 注册事件
         EventMgr.Instance.AddListener(nameof(MainEventType.EnterPreparedStatus), _preparedState.Enter, this, GetType());
@@ -116,7 +119,7 @@ public partial class Main : MonoBehaviour
         // _slider.onValueChanged.AddListener(SliderValueChanged);
         PressInput.Instance.onReleased.AddListener(OnButtonPress);
         PullInput.Instance.onReleased.AddListener(OnSpringPullExist);
-        baffleTargetPos  = DataSetting.Instance.baffleMove.transform.localPosition;
+        baffleTargetPos = DataSetting.Instance.baffleMove.transform.localPosition;
         pullHandStartPos = DataSetting.Instance.blockB.transform.position;
 
         InitInteractionOnStart(interactionType);
@@ -124,17 +127,18 @@ public partial class Main : MonoBehaviour
         _preparedState.Enter();
     }
 
-    public void InitInteractionOnStart(InteractionType type) {
+    public void InitInteractionOnStart(InteractionType type)
+    {
         bool isVirtualHands = interactionType == InteractionType.VirtualHands;
 
         Debug.Log($"init interaction on start: {isVirtualHands}");
 
         cubeGrabInteractable.enabled = isVirtualHands;
-        cubeGrab.enabled             = isVirtualHands;
-        cubeGrabEvent.enabled        = isVirtualHands;
+        cubeGrab.enabled = isVirtualHands;
+        cubeGrabEvent.enabled = isVirtualHands;
 
         buttonPressInteractable.enabled = isVirtualHands;
-        buttonPressEvent.enabled        = isVirtualHands;
+        buttonPressEvent.enabled = isVirtualHands;
 
         // knobGrabInteractable.enabled = isVirtualHands;
         // knobGrab.enabled = isVirtualHands;
@@ -142,9 +146,10 @@ public partial class Main : MonoBehaviour
         // knobGrabEvent.enabled = isVirtualHands;
         knobRotate.enabled = !isVirtualHands;
 
-        switch (type) {
+        switch (type)
+        {
             case InteractionType.VirtualHands:
-                
+
                 knobGrabEvent.WhenSelect.AddListener(OnKnobRotate);
                 angleRatio = 1f;
                 break;
@@ -160,8 +165,10 @@ public partial class Main : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
-        switch (statusType) {
+    void Update()
+    {
+        switch (statusType)
+        {
             case StateType.Prepared:
                 _preparedState.Update();
                 break;
@@ -183,13 +190,16 @@ public partial class Main : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
 
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
+        {
             OnButtonPress();
         }
     }
 
-    public void ExistCurrentStatus() {
-        switch (statusType) {
+    public void ExistCurrentStatus()
+    {
+        switch (statusType)
+        {
             case StateType.Prepared:
                 _preparedState.Exist();
                 break;
@@ -215,12 +225,15 @@ public partial class Main : MonoBehaviour
     /// <summary>
     /// 按钮按下的触发事件
     /// </summary>
-    public void OnButtonPress() {
-        if (statusType == StateType.Controlling) {
+    public void OnButtonPress()
+    {
+        if (statusType == StateType.Controlling)
+        {
             // Controlling --> Running
             EventMgr.Instance.EventTrigger(nameof(MainEventType.EnterRunningStatus));
         }
-        else if (statusType is StateType.Finished or StateType.Running) {
+        else if (statusType is StateType.Finished or StateType.Running)
+        {
             // Finished --> Prepared
             // Running  --> Prepared
             EventMgr.Instance.EventTrigger(nameof(MainEventType.EnterPreparedStatus));
@@ -230,8 +243,10 @@ public partial class Main : MonoBehaviour
     /// <summary>
     /// 旋钮旋转的触发事件
     /// </summary>
-    public void OnKnobRotate() {
-        if (statusType == StateType.Running) {
+    public void OnKnobRotate()
+    {
+        if (statusType == StateType.Running)
+        {
             // Running --> Controlling
             EventMgr.Instance.EventTrigger(nameof(MainEventType.EnterControllingStatus));
         }
@@ -240,7 +255,8 @@ public partial class Main : MonoBehaviour
     /// <summary>
     /// 物块拉动时的触发事件
     /// </summary>
-    public void OnSpringPullEnter() {
+    public void OnSpringPullEnter()
+    {
         textPullVelocity.enabled = true;
 
         // Running --> Controlling
@@ -250,14 +266,17 @@ public partial class Main : MonoBehaviour
     /// <summary>
     /// 物块被松开时的触发事件
     /// </summary>
-    public void OnSpringPullExist() {
-        if (statusType == StateType.Pulling) {
+    public void OnSpringPullExist()
+    {
+        if (statusType == StateType.Pulling)
+        {
             float moveDis = pullHandNowPos.x - pullHandStartPos.x;
 
-            float speed = interactionType switch {
+            float speed = interactionType switch
+            {
                 InteractionType.VirtualHands => moveDis / blockBTranslateTransformer.Constraints.MaxZ.Value * maxSpeed,
-                InteractionType.RealObjects  => PullInput.Instance.NormedMaxValue * maxSpeed,
-                _                            => throw new ArgumentOutOfRangeException()
+                InteractionType.RealObjects => PullInput.Instance.NormedMaxValue * maxSpeed,
+                _ => throw new ArgumentOutOfRangeException()
             };
 
             // couple：给 block 设置初速度
@@ -273,13 +292,16 @@ public partial class Main : MonoBehaviour
         }
     }
 
-    public void SliderValueChanged(float value) {
-        if (statusType == StateType.Running) {
+    public void SliderValueChanged(float value)
+    {
+        if (statusType == StateType.Running)
+        {
             // Running --> Controlling
             EventMgr.Instance.EventTrigger(nameof(MainEventType.EnterControllingStatus));
         }
 
-        if (statusType == StateType.Controlling) {
+        if (statusType == StateType.Controlling)
+        {
             // 处于用户控制状态时，才执行以下逻辑
             float deltaValue = value - _lastSliderValue; // 记录 value 变化量
             _lastSliderValue = value;
@@ -288,7 +310,7 @@ public partial class Main : MonoBehaviour
 
             // 两帧之间的时间变化
             float lastTime = moveTime;
-            float nowTime  = moveTime + deltaValue;
+            float nowTime = moveTime + deltaValue;
             moveTime = nowTime <= 0 ? 0 : nowTime;
 
             DataSetting.Instance.couple.SetMoveTime(moveTime); // 确保 nowTime >= 0
@@ -300,15 +322,17 @@ public partial class Main : MonoBehaviour
 
             DataSetting.Instance.graphMgr.SetHighlightPoint(moveTime);
 
-            if (lastTime >= 0 || nowTime >= 0) {
+            if (lastTime >= 0 || nowTime >= 0)
+            {
                 // 确保 lastTime - nowTime 中间有 >=0 的点需要绘制
                 // graph：进行绘制
-                float startTime = (int) (lastTime / xAxisUnit) * xAxisUnit;
-                float endTime   = (int) (nowTime / xAxisUnit) * xAxisUnit;
+                float startTime = (int)(lastTime / xAxisUnit) * xAxisUnit;
+                float endTime = (int)(nowTime / xAxisUnit) * xAxisUnit;
                 float deltaTime = Mathf.Sign(nowTime - lastTime) * xAxisUnit;
                 for (float t = startTime;
                      t >= 0 && ((deltaValue > 0 && t < endTime) || (deltaValue < 0 && t > endTime));
-                     t += deltaTime) {
+                     t += deltaTime)
+                {
                     // 线性采样，绘制图像
                     // DataSetting.Instance.velocityGraph.AddValue(t, DataSetting.Instance.blockA.CalculateVelocity(t), 0);
                     // DataSetting.Instance.velocityGraph.AddValue(t, DataSetting.Instance.blockB.CalculateVelocity(t), 1);
