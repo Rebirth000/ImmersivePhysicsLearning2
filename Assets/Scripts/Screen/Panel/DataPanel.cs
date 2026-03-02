@@ -4,25 +4,32 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using QFramework;
+using ImmersivePhysics.App;
 
 [ExecuteAlways]
-public class DataPanel : MonoBehaviour
+public class DataPanel : MonoBehaviour, IController
 {
-    public VelocityPanel      velocityPanel;
-    public MomentumPanel      momentumPanel;
+    public IArchitecture GetArchitecture()
+    {
+        return ImmersivePhysicsApp.Interface;
+    }
+    public VelocityPanel velocityPanel;
+    public MomentumPanel momentumPanel;
     public KineticEnergyPanel kineticEnergyPanel;
-    public ConstantPanel      constantPanel;
+    public ConstantPanel constantPanel;
 
     public GraphMgr graphMgr;
 
     private PanelType _lastPanelType;
-    public  PanelType panelType;
+    public PanelType panelType;
 
-    private void Awake() {
-        velocityPanel      = DataSetting.GetComponentFromChild<VelocityPanel>(transform, "VelocityPanel");
-        momentumPanel      = DataSetting.GetComponentFromChild<MomentumPanel>(transform, "MomentumPanel");
+    private void Awake()
+    {
+        velocityPanel = DataSetting.GetComponentFromChild<VelocityPanel>(transform, "VelocityPanel");
+        momentumPanel = DataSetting.GetComponentFromChild<MomentumPanel>(transform, "MomentumPanel");
         kineticEnergyPanel = DataSetting.GetComponentFromChild<KineticEnergyPanel>(transform, "KineticEnergyPanel");
-        constantPanel      = DataSetting.GetComponentFromChild<ConstantPanel>(transform, "ConstantPanel");
+        constantPanel = DataSetting.GetComponentFromChild<ConstantPanel>(transform, "ConstantPanel");
 
         graphMgr = DataSetting.GetComponentFromChild<GraphMgr>(transform.parent, "GraphDrawers");
 
@@ -32,9 +39,24 @@ public class DataPanel : MonoBehaviour
         kineticEnergyPanel.Awake();
     }
 
-    private void Update() {
-        if (panelType != _lastPanelType) {
-            switch (panelType) {
+    private void Start()
+    {
+        if (Application.isPlaying)
+        {
+            this.GetModel<PhysicsDataModel>().MaxSpeed.RegisterWithInitValue(speed =>
+            {
+                constantPanel.SetStartSpeed(speed);
+                momentumPanel.SetStartMomentum(speed);
+            });
+        }
+    }
+
+    private void Update()
+    {
+        if (panelType != _lastPanelType)
+        {
+            switch (panelType)
+            {
                 case PanelType.Velocity:
                     ShowVelocityPanel();
                     break;
@@ -51,30 +73,35 @@ public class DataPanel : MonoBehaviour
         }
     }
 
-    public void SetStartSpeed(float speed) {
-        constantPanel.SetStartSpeed(speed);
-        momentumPanel.SetStartMomentum(speed);
-    }
+    // 被废弃的方法：现在已经通过 QFramework 的 Register 事件自动更新
+    // public void SetStartSpeed(float speed) {
+    //     constantPanel.SetStartSpeed(speed);
+    //     momentumPanel.SetStartMomentum(speed);
+    // }
 
-    public void ShowPanel(PanelType type) {
+    public void ShowPanel(PanelType type)
+    {
         velocityPanel.gameObject.SetActive(type == PanelType.Velocity);
         momentumPanel.gameObject.SetActive(type == PanelType.Momentum);
         kineticEnergyPanel.gameObject.SetActive(type == PanelType.KineticEnergy);
     }
 
-    public void ShowVelocityPanel() {
+    public void ShowVelocityPanel()
+    {
         graphMgr.ShowGraph(GraphType.Velocity);
         ShowPanel(PanelType.Velocity);
         panelType = PanelType.Velocity;
     }
 
-    public void ShowMomentumPanel() {
+    public void ShowMomentumPanel()
+    {
         graphMgr.ShowGraph(GraphType.Momentum);
         ShowPanel(PanelType.Momentum);
         panelType = PanelType.Momentum;
     }
 
-    public void ShowKineticEnergyPanel() {
+    public void ShowKineticEnergyPanel()
+    {
         graphMgr.ShowGraph(GraphType.KineticEnergy);
         ShowPanel(PanelType.KineticEnergy);
         panelType = PanelType.KineticEnergy;

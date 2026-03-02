@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using QFramework;
+using ImmersivePhysics.App;
 
-public abstract class BaseState
+public abstract class BaseState : IController
 {
+    public IArchitecture GetArchitecture()
+    {
+        return ImmersivePhysicsApp.Interface;
+    }
+
     protected Main main;
 
     public abstract void Enter();
@@ -11,7 +18,7 @@ public abstract class BaseState
     public abstract void Update();
 
     public abstract void Exist();
-    
+
     // 检查切换状态的方法
     public abstract void SwitchState();
 }

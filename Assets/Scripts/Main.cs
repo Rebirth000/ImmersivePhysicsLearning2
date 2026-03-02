@@ -9,18 +9,25 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using QFramework;
+using ImmersivePhysics.App;
 
-public partial class Main : MonoBehaviour
+public partial class Main : MonoBehaviour, IController
 {
-    public InteractionType interactionType = InteractionType.VirtualHands; // 交互类型
+    public IArchitecture GetArchitecture()
+    {
+        return ImmersivePhysicsApp.Interface;
+    }
 
-    public StateType statusType = StateType.Prepared; // 当前 couple 状态
+    public InteractionType interactionType { get => this.GetModel<PhysicsDataModel>().InteractionType.Value; set => this.GetModel<PhysicsDataModel>().InteractionType.Value = value; } // 交互类型
 
-    public float maxSpeed = 1; // 初速度
+    public StateType statusType { get => this.GetModel<PhysicsDataModel>().StatusType.Value; set => this.GetModel<PhysicsDataModel>().StatusType.Value = value; } // 当前 couple 状态
 
-    public BlockSpringCouple.EBlock block = BlockSpringCouple.EBlock.A; // 给哪个物块初速度
+    public float maxSpeed { get => this.GetModel<PhysicsDataModel>().MaxSpeed.Value; set => this.GetModel<PhysicsDataModel>().MaxSpeed.Value = value; } // 初速度
 
-    public float moveTime = 0; // 移动时间
+    public BlockSpringCouple.EBlock block { get => this.GetModel<PhysicsDataModel>().TargetBlock.Value; set => this.GetModel<PhysicsDataModel>().TargetBlock.Value = value; } // 给哪个物块初速度
+
+    public float moveTime { get => this.GetModel<PhysicsDataModel>().MoveTime.Value; set => this.GetModel<PhysicsDataModel>().MoveTime.Value = value; } // 移动时间
 
     public Vector3 baffleTargetPos; // baffle 目标位置
 
@@ -223,19 +230,21 @@ public partial class Main : MonoBehaviour
     }
 
     /// <summary>
-    /// 按钮按下的触发事件
+    /// 按钮按下的触发事件 (转为 QFramework Command)
     /// </summary>
     public void OnButtonPress()
     {
         if (statusType == StateType.Controlling)
         {
             // Controlling --> Running
-            EventMgr.Instance.EventTrigger(nameof(MainEventType.EnterRunningStatus));
+            this.SendCommand(new ChangePhysicsStateCommand(StateType.Running));
+            EventMgr.Instance.EventTrigger(nameof(MainEventType.EnterRunningStatus)); // 暂时保留以兼容状态机
         }
         else if (statusType is StateType.Finished or StateType.Running)
         {
             // Finished --> Prepared
             // Running  --> Prepared
+            this.SendCommand(new ChangePhysicsStateCommand(StateType.Prepared));
             EventMgr.Instance.EventTrigger(nameof(MainEventType.EnterPreparedStatus));
         }
     }
@@ -248,6 +257,7 @@ public partial class Main : MonoBehaviour
         if (statusType == StateType.Running)
         {
             // Running --> Controlling
+            this.SendCommand(new ChangePhysicsStateCommand(StateType.Controlling));
             EventMgr.Instance.EventTrigger(nameof(MainEventType.EnterControllingStatus));
         }
     }
@@ -260,6 +270,7 @@ public partial class Main : MonoBehaviour
         textPullVelocity.enabled = true;
 
         // Running --> Controlling
+        this.SendCommand(new ChangePhysicsStateCommand(StateType.Pulling));
         EventMgr.Instance.EventTrigger(nameof(MainEventType.EnterPullingStatus));
     }
 
@@ -282,12 +293,13 @@ public partial class Main : MonoBehaviour
             // couple：给 block 设置初速度
             DataSetting.Instance.couple.SetPreSpeed(block, speed);
 
-            // panel：更新面板信息
-            DataSetting.Instance.panel.SetStartSpeed(speed);
+            // QFramework: 把新的速度和目标存入系统中
+            this.SendCommand(new UpdatePhysicsSettingsCommand(speed, block));
 
             PullInput.Instance.IsPulling = false;
 
             // Prepared --> Running
+            this.SendCommand(new ChangePhysicsStateCommand(StateType.Running));
             EventMgr.Instance.EventTrigger(nameof(MainEventType.EnterRunningStatus));
         }
     }
@@ -297,6 +309,7 @@ public partial class Main : MonoBehaviour
         if (statusType == StateType.Running)
         {
             // Running --> Controlling
+            this.SendCommand(new ChangePhysicsStateCommand(StateType.Controlling));
             EventMgr.Instance.EventTrigger(nameof(MainEventType.EnterControllingStatus));
         }
 
@@ -311,7 +324,9 @@ public partial class Main : MonoBehaviour
             // 两帧之间的时间变化
             float lastTime = moveTime;
             float nowTime = moveTime + deltaValue;
-            moveTime = nowTime <= 0 ? 0 : nowTime;
+
+            // 发送指令更新时间 (内部已经自带 < 0 的保护)
+            this.SendCommand(new UpdateMoveTimeCommand(nowTime));
 
             DataSetting.Instance.couple.SetMoveTime(moveTime); // 确保 nowTime >= 0
 

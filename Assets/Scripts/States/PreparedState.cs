@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using QFramework;
+using ImmersivePhysics.App;
 
 public class PreparedState : BaseState
 {
@@ -38,7 +40,6 @@ public class PreparedState : BaseState
         main.moveTime = 0;                                      // 运动时间清零
         DataSetting.Instance.couple.SetMoveTime(main.moveTime); // 应用 moveTime
         DataSetting.Instance.couple.HideArrows();               // 准备阶段不显示箭头数据
-        DataSetting.Instance.panel.SetStartSpeed(0);            // 更新初速度
 
         // 激活交互
         main.blockBEffect.highlighted = true;
@@ -78,13 +79,11 @@ public class PreparedState : BaseState
             // couple：给 block 设置初速度
             DataSetting.Instance.couple.SetPreSpeed(main.block, main.maxSpeed);
 
-            // panel：更新面板信息
-            DataSetting.Instance.panel.SetStartSpeed(main.maxSpeed);
-
             // DataSetting.Instance.couple.SetPreSpeed(BlockSpringCouple.EBlock.B, 10);
             DataSetting.Instance.couple.ShowArrows();
 
             // Prepared --> Running
+            this.SendCommand(new ChangePhysicsStateCommand(StateType.Running));
             EventMgr.Instance.EventTrigger(nameof(MainEventType.EnterRunningStatus));
         }
 
