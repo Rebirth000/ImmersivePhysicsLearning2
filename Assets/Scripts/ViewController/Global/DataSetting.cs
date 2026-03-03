@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using ImmersivePhysics.ViewController;
 using Object = UnityEngine.Object;
 
 [ExecuteAlways]
@@ -11,12 +12,16 @@ public class DataSetting : MonoBehaviour
 {
     private static DataSetting _instance;
 
-    public static DataSetting Instance {
-        get {
-            if (_instance == null) {
+    public static DataSetting Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
                 GameObject obj = GameObject.Find(nameof(DataSetting));
-                if (obj == null) {
-                    obj       = new GameObject(nameof(DataSetting)); // 创建名称相同的 obj
+                if (obj == null)
+                {
+                    obj = new GameObject(nameof(DataSetting)); // 创建名称相同的 obj
                     _instance = obj.AddComponent<DataSetting>();     // 添加 _instance
                 }
                 else
@@ -27,26 +32,27 @@ public class DataSetting : MonoBehaviour
         }
     }
 
-    public Main              main;
+    public Main main;
     public BlockSpringCouple couple;
-    public BlockMove         blockA;
-    public BlockMove         blockB;
-    public SpringMove        springMove;
-    public GraphMgr          graphMgr;
-    public DataPanel         panel;
-    public BaffleMove        baffleMove;
-    public ButtonMenu        buttonMenu;
-    public TMP_FontAsset     englishFont;
-    public TMP_FontAsset     chineseFont;
+    public BlockMove blockA;
+    public BlockMove blockB;
+    public SpringMove springMove;
+    public GraphMgr graphMgr;
+    public DataPanel panel;
+    public BaffleMove baffleMove;
+    public ButtonMenu buttonMenu;
+    public TMP_FontAsset englishFont;
+    public TMP_FontAsset chineseFont;
 
-    private void Awake() {
-        main       = GetComponent<Main>("Main");
-        couple     = GetComponent<BlockSpringCouple>("Objects/LabTable/Track/Couple");
-        blockA     = GetComponent<BlockMove>("Objects/LabTable/Track/Couple/BlockA");
-        blockB     = GetComponent<BlockMove>("Objects/LabTable/Track/Couple/BlockB");
+    private void Awake()
+    {
+        main = GetComponent<Main>("Main");
+        couple = GetComponent<BlockSpringCouple>("Objects/LabTable/Track/Couple");
+        blockA = GetComponent<BlockMove>("Objects/LabTable/Track/Couple/BlockA");
+        blockB = GetComponent<BlockMove>("Objects/LabTable/Track/Couple/BlockB");
         springMove = GetComponent<SpringMove>("Objects/LabTable/Track/Couple/Spring");
-        graphMgr   = GetComponent<GraphMgr>("DisplayBoard_2D/GraphDrawers");
-        panel      = GetComponent<DataPanel>("DisplayBoard_2D/DataPanel");
+        graphMgr = GetComponent<GraphMgr>("DisplayBoard_2D/GraphDrawers");
+        panel = GetComponent<DataPanel>("DisplayBoard_2D/DataPanel");
         baffleMove = GetComponent<BaffleMove>("Objects/LabTable/Track/MonitorTrigger/Baffle");
         buttonMenu = GetComponent<ButtonMenu>("ButtonMenu");
 
@@ -59,7 +65,8 @@ public class DataSetting : MonoBehaviour
     /// </summary>
     /// <param name="path">子物体路径</param>
     /// <typeparam name="T">组件类型</typeparam>
-    public static T GetComponent<T>(string path) where T : Object {
+    public static T GetComponent<T>(string path) where T : Object
+    {
         T comp = GameObject.Find(path).GetComponent<T>();
 
         if (comp == null)
@@ -73,7 +80,8 @@ public class DataSetting : MonoBehaviour
     /// </summary>
     /// <param name="trans">物体 transform</param>
     /// <typeparam name="T">组件类型</typeparam>
-    public static T GetComponent<T>(Transform trans) where T : Object {
+    public static T GetComponent<T>(Transform trans) where T : Object
+    {
         T comp = trans.GetComponent<T>();
 
         if (comp == null)
@@ -88,7 +96,8 @@ public class DataSetting : MonoBehaviour
     /// <param name="path">子物体路径</param>
     /// <param name="parent">父物体</param>
     /// <typeparam name="T">组件类型</typeparam>
-    public static T GetComponentFromChild<T>(Transform parent, string path) where T : Object {
+    public static T GetComponentFromChild<T>(Transform parent, string path) where T : Object
+    {
         Transform transPath = parent.Find(path);
 
         if (transPath == null)

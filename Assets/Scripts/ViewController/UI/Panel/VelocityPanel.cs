@@ -1,32 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+using ImmersivePhysics.App;
+using QFramework;
 using UnityEngine;
 
-public class VelocityPanel : MonoBehaviour
+namespace ImmersivePhysics.ViewController
 {
-    public TextMeshPro textW;
-    public TextMeshPro textVt;
-    public TextMeshPro textVa;
-    public TextMeshPro textVb;
+    /// <summary>
+    /// 速度面板 — 显示 ω、V共、Va、Vb
+    /// 绑定变量 TextW, TextVt, TextVa, TextVb 由 VelocityPanel.Designer.cs 自动生成
+    /// </summary>
+    public partial class VelocityPanel : QFramework.ViewController, IController
+    {
+        public IArchitecture GetArchitecture()
+        {
+            return ImmersivePhysicsApp.Interface;
+        }
 
-    public void Awake() {
-        textW  = DataSetting.GetComponentFromChild<TextMeshPro>(transform, "w/Expression2/Value");
-        textVt = DataSetting.GetComponentFromChild<TextMeshPro>(transform, "VelocityTogether/Expression2/Value");
-        textVa = DataSetting.GetComponentFromChild<TextMeshPro>(transform, "VelocityA/Expression3/Value");
-        textVb = DataSetting.GetComponentFromChild<TextMeshPro>(transform, "VelocityB/Expression3/Value");
-    }
-
-    // Start is called before the first frame update
-    void Start() { }
-
-    // Update is called once per frame
-    void Update() {
-        textW.text  = MathUtil.FormatFloat(DataSetting.Instance.couple.w);
-        
-        textVt.text = MathUtil.FormatFloat(DataSetting.Instance.blockA.B);
-        textVa.text = MathUtil.FormatFloat(DataSetting.Instance.blockA.MoveVelocity);
-        textVb.text = MathUtil.FormatFloat(DataSetting.Instance.blockB.MoveVelocity);
+        // Update is called once per frame
+        void Update()
+        {
+            TextW.text = MathUtil.FormatFloat(DataSetting.Instance.couple.w);
+            TextVt.text = MathUtil.FormatFloat(DataSetting.Instance.blockA.B);
+            TextVa.text = MathUtil.FormatFloat(DataSetting.Instance.blockA.MoveVelocity);
+            TextVb.text = MathUtil.FormatFloat(DataSetting.Instance.blockB.MoveVelocity);
+        }
     }
 }

@@ -910,6 +910,44 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!21 &8685930
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Triangle Transparent (instance)
+  m_Shader: {fileID: 4800000, guid: 52908bebb4ec95240bedf3b094f65889, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _StencilComp: 8
+    - _StencilID: 0
+    - _StencilOp: 0
+    - _StencilOpPass: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &13837226
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,8 +4384,9 @@ GameObject:
   - component: {fileID: 138917976}
   - component: {fileID: 138917978}
   - component: {fileID: 138917977}
+  - component: {fileID: 138917979}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textEa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4516,6 +4555,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &138917979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138917975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!4 &152681525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4869577802921675287, guid: ea16c3c8c1688234fa81a4f39339bf1b, type: 3}
@@ -4747,8 +4802,9 @@ GameObject:
   - component: {fileID: 154326025}
   - component: {fileID: 154326027}
   - component: {fileID: 154326026}
+  - component: {fileID: 154326028}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textPStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4917,6 +4973,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &154326028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154326024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &173464460
 GameObject:
   m_ObjectHideFlags: 0
@@ -5254,8 +5326,9 @@ GameObject:
   - component: {fileID: 193098221}
   - component: {fileID: 193098223}
   - component: {fileID: 193098222}
+  - component: {fileID: 193098224}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textMassB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5424,6 +5497,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &193098224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193098220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &203598848
 GameObject:
   m_ObjectHideFlags: 0
@@ -5797,8 +5886,9 @@ GameObject:
   - component: {fileID: 214601606}
   - component: {fileID: 214601608}
   - component: {fileID: 214601607}
+  - component: {fileID: 214601609}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textEb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5967,6 +6057,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &214601609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214601605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &214607654
 GameObject:
   m_ObjectHideFlags: 0
@@ -7156,6 +7262,44 @@ MonoBehaviour:
     radialOrigin: {x: 0, y: 0, z: 0}
     radialRadius: 1
   useFill: 0
+--- !u!21 &261967947
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Triangle Transparent (instance)
+  m_Shader: {fileID: 4800000, guid: 52908bebb4ec95240bedf3b094f65889, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _StencilComp: 8
+    - _StencilID: 0
+    - _StencilOp: 0
+    - _StencilOpPass: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &262604280
 GameObject:
   m_ObjectHideFlags: 0
@@ -7414,6 +7558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 264174352}
   - component: {fileID: 264174353}
+  - component: {fileID: 264174355}
   m_Layer: 5
   m_Name: VelocityPanel
   m_TagString: Untagged
@@ -7452,10 +7597,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc503e6e7c241141b3adf01d2478d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textW: {fileID: 592890698}
-  textVt: {fileID: 516729893}
-  textVa: {fileID: 1408001564}
-  textVb: {fileID: 1562902049}
+  Namespace: ImmersivePhysics.ViewController
+  ScriptName: VelocityPanel
+  ScriptsFolder: Assets\Scripts\ViewController\UI\Panel
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: ImmersivePhysics.App.ImmersivePhysicsApp
+  ViewControllerFullTypeName: 
+  TextW: {fileID: 592890698}
+  TextVt: {fileID: 516729893}
+  TextVa: {fileID: 1408001564}
+  TextVb: {fileID: 1562902049}
+--- !u!114 &264174355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264174351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: VelocityPanel
+  CustomComment: 
+  mComponentName: ImmersivePhysics.ViewController.VelocityPanel
 --- !u!1 &267731003
 GameObject:
   m_ObjectHideFlags: 0
@@ -10388,7 +10556,8 @@ GameObject:
   m_Component:
   - component: {fileID: 387831041}
   - component: {fileID: 387831040}
-  - component: {fileID: 387831039}
+  - component: {fileID: 387831042}
+  - component: {fileID: 387831043}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -10396,26 +10565,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &387831039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387831038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &387831040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10446,6 +10595,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &387831042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387831038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.UI.InputSystemUIInputModule
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
+--- !u!114 &387831043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387831038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2518c50cb3fc6a6458d4b743c2f69c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.PointableCanvasModule
+  m_SendPointerHoverToParent: 1
+  _useInitialPressPositionForDrag: 1
+  _exclusiveMode: 1
 --- !u!1 &392498399
 GameObject:
   m_ObjectHideFlags: 0
@@ -10456,6 +10651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 392498400}
   - component: {fileID: 392498401}
+  - component: {fileID: 392498402}
   m_Layer: 5
   m_Name: MomentumPanel
   m_TagString: Untagged
@@ -10494,10 +10690,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104c860659f4a49429fdb2e3c390052a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Namespace: ImmersivePhysics.ViewController
+  ScriptName: MomentumPanel
+  ScriptsFolder: Assets\Scripts\ViewController\UI\Panel
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: ImmersivePhysics.App.ImmersivePhysicsApp
+  ViewControllerFullTypeName: 
   textPStart: {fileID: 154326026}
   textPa: {fileID: 785385103}
   textPb: {fileID: 1218659211}
   textPSum: {fileID: 2099534619}
+--- !u!114 &392498402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392498399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: MomentumPanel
+  CustomComment: 
+  mComponentName: QFramework.ViewController
 --- !u!1 &394011474
 GameObject:
   m_ObjectHideFlags: 0
@@ -11935,6 +12154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 454449377}
   - component: {fileID: 454449378}
+  - component: {fileID: 454449379}
   m_Layer: 5
   m_Name: KineticEnergyPanel
   m_TagString: Untagged
@@ -11974,11 +12194,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee11468a699d254abc7d85fe7dc4587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Namespace: ImmersivePhysics.ViewController
+  ScriptName: KineticEnergyPanel
+  ScriptsFolder: Assets\Scripts\ViewController\UI\Panel
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: ImmersivePhysics.App.ImmersivePhysicsApp
+  ViewControllerFullTypeName: 
   textDeltaL: {fileID: 845027896}
   textEa: {fileID: 138917977}
   textEb: {fileID: 214601607}
   textEp: {fileID: 1274549462}
   textESum: {fileID: 1408844118}
+--- !u!114 &454449379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454449376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: KineticEnergyPanel
+  CustomComment: 
+  mComponentName: QFramework.ViewController
 --- !u!1 &462784471
 GameObject:
   m_ObjectHideFlags: 0
@@ -13312,8 +13555,9 @@ GameObject:
   - component: {fileID: 516729892}
   - component: {fileID: 516729894}
   - component: {fileID: 516729893}
+  - component: {fileID: 516729895}
   m_Layer: 0
-  m_Name: Value
+  m_Name: TextVt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13482,6 +13726,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &516729895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516729891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &526609290
 GameObject:
   m_ObjectHideFlags: 0
@@ -14271,6 +14531,8 @@ GameObject:
   m_Component:
   - component: {fileID: 557038068}
   - component: {fileID: 557038070}
+  - component: {fileID: 557038072}
+  - component: {fileID: 557038071}
   m_Layer: 5
   m_Name: DataPanel
   m_TagString: Untagged
@@ -14316,6 +14578,45 @@ MonoBehaviour:
   constantPanel: {fileID: 8881024467880824321}
   graphMgr: {fileID: 1074292187}
   panelType: 0
+  VelocityPanel: {fileID: 0}
+  MomentumPanel: {fileID: 0}
+  KineticEnergyPanel: {fileID: 0}
+  ConstantPanel: {fileID: 0}
+  GraphDrawers: {fileID: 0}
+--- !u!114 &557038071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557038067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.OtherBinds
+  Binds:
+  - MemberName: GraphDrawers
+    Object: {fileID: 1074292185}
+--- !u!114 &557038072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557038067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.ViewController
+  Namespace: ImmersivePhysics.ViewController
+  ScriptName: DataPanel
+  ScriptsFolder: Assets/Scripts/ViewController/UI/Panel
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
 --- !u!1 &563634412
 GameObject:
   m_ObjectHideFlags: 0
@@ -14678,6 +14979,44 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!21 &581358127
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Line 2D Opaque (instance)
+  m_Shader: {fileID: 4800000, guid: f70b158aaf2f00a47be44d933b54c341, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _StencilComp: 8
+    - _StencilID: 0
+    - _StencilOp: 0
+    - _StencilOpPass: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &581909231
 GameObject:
   m_ObjectHideFlags: 0
@@ -14946,8 +15285,9 @@ GameObject:
   - component: {fileID: 592890697}
   - component: {fileID: 592890699}
   - component: {fileID: 592890698}
+  - component: {fileID: 592890700}
   m_Layer: 0
-  m_Name: Value
+  m_Name: TextW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15118,6 +15458,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &592890700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592890696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &593540718
 GameObject:
   m_ObjectHideFlags: 0
@@ -15129,8 +15485,9 @@ GameObject:
   - component: {fileID: 593540719}
   - component: {fileID: 593540721}
   - component: {fileID: 593540720}
+  - component: {fileID: 593540722}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textSpringK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15301,6 +15658,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &593540722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593540718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &600019888
 GameObject:
   m_ObjectHideFlags: 0
@@ -19046,44 +19419,6 @@ Transform:
   - {fileID: 1651574482}
   m_Father: {fileID: 81086854}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &751763855
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Triangle Transparent (instance)
-  m_Shader: {fileID: 4800000, guid: 52908bebb4ec95240bedf3b094f65889, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _StencilComp: 8
-    - _StencilID: 0
-    - _StencilOp: 0
-    - _StencilOpPass: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &753921786
 GameObject:
   m_ObjectHideFlags: 0
@@ -19810,8 +20145,9 @@ GameObject:
   - component: {fileID: 785385102}
   - component: {fileID: 785385104}
   - component: {fileID: 785385103}
+  - component: {fileID: 785385105}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textPa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19980,44 +20316,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!21 &792044067
-Material:
-  serializedVersion: 8
+--- !u!114 &785385105
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Triangle Transparent (instance)
-  m_Shader: {fileID: 4800000, guid: 52908bebb4ec95240bedf3b094f65889, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _StencilComp: 8
-    - _StencilID: 0
-    - _StencilOp: 0
-    - _StencilOpPass: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
+  m_GameObject: {fileID: 785385101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &794775420
 GameObject:
   m_ObjectHideFlags: 0
@@ -20506,8 +20820,9 @@ GameObject:
   - component: {fileID: 845027895}
   - component: {fileID: 845027897}
   - component: {fileID: 845027896}
+  - component: {fileID: 845027898}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textDeltaL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20676,6 +20991,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &845027898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845027894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &851858092
 GameObject:
   m_ObjectHideFlags: 0
@@ -26374,7 +26705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1106090260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29564,8 +29895,9 @@ GameObject:
   - component: {fileID: 1218659210}
   - component: {fileID: 1218659212}
   - component: {fileID: 1218659211}
+  - component: {fileID: 1218659213}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textPb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29734,6 +30066,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1218659213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218659209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &1225531761
 GameObject:
   m_ObjectHideFlags: 0
@@ -30799,8 +31147,9 @@ GameObject:
   - component: {fileID: 1255195787}
   - component: {fileID: 1255195789}
   - component: {fileID: 1255195788}
+  - component: {fileID: 1255195790}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textSpeedStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30969,6 +31318,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1255195790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255195786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &1255745181
 GameObject:
   m_ObjectHideFlags: 0
@@ -31814,8 +32179,9 @@ GameObject:
   - component: {fileID: 1274549461}
   - component: {fileID: 1274549463}
   - component: {fileID: 1274549462}
+  - component: {fileID: 1274549464}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textEp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31984,6 +32350,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1274549464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274549460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &1275715489
 GameObject:
   m_ObjectHideFlags: 0
@@ -33508,8 +33890,9 @@ GameObject:
   - component: {fileID: 1352610679}
   - component: {fileID: 1352610681}
   - component: {fileID: 1352610680}
+  - component: {fileID: 1352610682}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textLStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33678,6 +34061,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1352610682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352610678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &1355169173
 GameObject:
   m_ObjectHideFlags: 0
@@ -33847,44 +34246,6 @@ MonoBehaviour:
     spacing: 4
     offset: 0
     shapeModifier: 1
---- !u!21 &1369264262
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Line 2D Opaque (instance)
-  m_Shader: {fileID: 4800000, guid: f70b158aaf2f00a47be44d933b54c341, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _StencilComp: 8
-    - _StencilID: 0
-    - _StencilOp: 0
-    - _StencilOpPass: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &1375918734
 GameObject:
   m_ObjectHideFlags: 0
@@ -34973,8 +35334,9 @@ GameObject:
   - component: {fileID: 1408001563}
   - component: {fileID: 1408001565}
   - component: {fileID: 1408001564}
+  - component: {fileID: 1408001566}
   m_Layer: 0
-  m_Name: Value
+  m_Name: TextVa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35143,6 +35505,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1408001566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408001562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &1408844116
 GameObject:
   m_ObjectHideFlags: 0
@@ -35154,8 +35532,9 @@ GameObject:
   - component: {fileID: 1408844117}
   - component: {fileID: 1408844119}
   - component: {fileID: 1408844118}
+  - component: {fileID: 1408844120}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textESum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35324,6 +35703,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1408844120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408844116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &1411313017
 GameObject:
   m_ObjectHideFlags: 0
@@ -40352,8 +40747,9 @@ GameObject:
   - component: {fileID: 1562902048}
   - component: {fileID: 1562902050}
   - component: {fileID: 1562902049}
+  - component: {fileID: 1562902051}
   m_Layer: 0
-  m_Name: Value
+  m_Name: TextVb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40522,6 +40918,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1562902051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562902047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &1564095813
 GameObject:
   m_ObjectHideFlags: 0
@@ -44273,44 +44685,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!21 &1706985522
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Line 2D Opaque (instance)
-  m_Shader: {fileID: 4800000, guid: f70b158aaf2f00a47be44d933b54c341, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _StencilComp: 8
-    - _StencilID: 0
-    - _StencilOp: 0
-    - _StencilOpPass: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &1707114878
 GameObject:
   m_ObjectHideFlags: 0
@@ -45191,8 +45565,9 @@ GameObject:
   - component: {fileID: 1736324915}
   - component: {fileID: 1736324917}
   - component: {fileID: 1736324916}
+  - component: {fileID: 1736324918}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45361,6 +45736,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1736324918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736324914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &1738729739
 GameObject:
   m_ObjectHideFlags: 0
@@ -50034,6 +50425,44 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!21 &1913532583
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Line 2D Opaque (instance)
+  m_Shader: {fileID: 4800000, guid: f70b158aaf2f00a47be44d933b54c341, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _StencilComp: 8
+    - _StencilID: 0
+    - _StencilOp: 0
+    - _StencilOpPass: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1917313690
 GameObject:
   m_ObjectHideFlags: 0
@@ -53272,8 +53701,9 @@ GameObject:
   - component: {fileID: 2099534618}
   - component: {fileID: 2099534620}
   - component: {fileID: 2099534619}
+  - component: {fileID: 2099534621}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textPSum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53442,6 +53872,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2099534621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099534617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!1 &2107183438
 GameObject:
   m_ObjectHideFlags: 0
@@ -54797,7 +55243,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1706985522}
+  - {fileID: 581358127}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -54934,7 +55380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 792044067}
+  - {fileID: 261967947}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -60977,7 +61423,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1369264262}
+  - {fileID: 1913532583}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -64074,7 +64520,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 751763855}
+  - {fileID: 8685930}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70645,8 +71091,9 @@ GameObject:
   - component: {fileID: 8881024467605593469}
   - component: {fileID: 8881024467605593471}
   - component: {fileID: 8881024467605593468}
+  - component: {fileID: 8881024467605593472}
   m_Layer: 0
-  m_Name: Value
+  m_Name: textMassA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70815,6 +71262,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8881024467605593472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881024467605593458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: Value
+  CustomComment: 
+  mComponentName: TMPro.TextMeshPro
 --- !u!4 &8881024467616143696
 Transform:
   m_ObjectHideFlags: 0
@@ -71029,6 +71492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8881024467880824320}
   - component: {fileID: 8881024467880824321}
+  - component: {fileID: 8881024467880824323}
   m_Layer: 0
   m_Name: ConstantPanel
   m_TagString: Untagged
@@ -71070,12 +71534,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c75d52b5126954f84a3d360735e9e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMassA: {fileID: 0}
-  textMassB: {fileID: 0}
-  textSpringK: {fileID: 0}
-  textSpeedStart: {fileID: 0}
-  textLStart: {fileID: 0}
-  textL: {fileID: 0}
+  Namespace: ImmersivePhysics.ViewController
+  ScriptName: ConstantPanel
+  ScriptsFolder: Assets\Scripts\ViewController\UI\Panel
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: ImmersivePhysics.App.ImmersivePhysicsApp
+  ViewControllerFullTypeName: 
+  textMassA: {fileID: 8881024467605593468}
+  textMassB: {fileID: 193098222}
+  textSpringK: {fileID: 593540720}
+  textLStart: {fileID: 1352610680}
+  textL: {fileID: 1736324916}
+  textSpeedStart: {fileID: 1255195788}
+--- !u!114 &8881024467880824323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881024467880824317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: QFramework.CoreKit::QFramework.Bind
+  MarkType: 0
+  CustomComponentName: ConstantPanel
+  CustomComment: 
+  mComponentName: ImmersivePhysics.ViewController.ConstantPanel
 --- !u!4 &8881024467989310826
 Transform:
   m_ObjectHideFlags: 0
